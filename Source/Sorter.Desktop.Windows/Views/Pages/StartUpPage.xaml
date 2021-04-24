@@ -1,0 +1,42 @@
+﻿<local:BasePage 
+      x:TypeArguments="local:StartUpPageViewModel"
+      x:Class="Sorter.Desktop.Windows.StartUpPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Sorter.Desktop.Windows"
+      mc:Ignorable="d" 
+      d:DesignHeight="425" d:DesignWidth="400"
+      Title="StartUpPage">
+
+    <Border 
+        UseLayoutRounding="True" 
+        Background="{StaticResource BrushVeryDark}">
+
+        <StackPanel
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center">
+
+            <TextBlock
+                Margin="0 0 0 20"
+                Foreground="{StaticResource BrushGradientBlueToGreen}"
+                Text="Sorter"
+                FontFamily="{StaticResource LatoThin}"
+                FontSize="{StaticResource FontSizeXXXLarge}"
+                />
+
+            <Button
+                Tag="{StaticResource FontAwesomePlusIcon}"
+                Style="{StaticResource TextButtonStyle}"
+                Content="Create a new query"/>
+
+            <Button
+                Tag="{StaticResource FontAwesomeOpenedFolderIcon}"
+                Style="{StaticResource TextButtonStyle}"
+                Content="Open a query"/>
+
+        </StackPanel>
+
+    </Border>
+</local:BasePage>
