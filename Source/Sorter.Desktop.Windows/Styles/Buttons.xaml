@@ -1,0 +1,174 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=System.Runtime">
+
+    <!-- Title bar button -->
+    <Style
+        x:Key="CloseWindowButton"
+        TargetType="{x:Type Button}">
+
+        <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True" />
+        <Setter Property="VerticalAlignment" Value="Stretch" />
+        <Setter Property="Width" Value="28px" />
+        <Setter Property="Content" Value="+" />
+        <Setter Property="Background" Value="{StaticResource BrushRed}" />
+
+        <Setter Property="Tag">
+            <Setter.Value>
+                <RotateTransform Angle="45" />
+            </Setter.Value>
+        </Setter>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate
+                    TargetType="{x:Type Button}">
+
+                    <Grid
+                        UseLayoutRounding="True">
+
+                        <Border
+                            x:Name="background"
+                            Background="{TemplateBinding Background}"
+                            Opacity="0" />
+
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Text="{TemplateBinding Content}"
+                            FontSize="{StaticResource FontSizeMedium}"
+                            Foreground="{StaticResource BrushVeryLight}"
+                            FontFamily="{StaticResource LatoThin}"
+                            LayoutTransform="{TemplateBinding Tag}"/>
+                    </Grid>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard
+                                        Storyboard.TargetName="background"
+                                        Storyboard.TargetProperty="Opacity">
+
+                                        <DoubleAnimation
+                                            To="1"
+                                            Duration="0:0:0.15"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard
+                                        Storyboard.TargetName="background"
+                                        Storyboard.TargetProperty="Opacity">
+
+                                        <DoubleAnimation
+                                            To="0"
+                                            Duration="0:0:0.15"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+    </Style>
+
+    <Style
+        x:Key="MinimizeWindowButton"
+        TargetType="{x:Type Button}"
+        BasedOn="{StaticResource CloseWindowButton}">
+
+        <Setter Property="Content" Value="-" />
+        <Setter Property="Background" Value="{StaticResource BrushMedium}" />
+
+        <Setter Property="Tag">
+            <Setter.Value>
+                <ScaleTransform ScaleX="2" />
+            </Setter.Value>
+        </Setter>
+        
+        
+    </Style>
+    
+    
+
+    <!-- Text button -->
+    <Style
+        x:Key="TextButtonStyle"
+        TargetType="{x:Type Button}">
+
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Margin" Value="0 0 0 7" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{StaticResource BrushLight}" />
+
+        <Setter Property="Template">
+
+            <Setter.Value>
+                <ControlTemplate
+                    TargetType="{x:Type Button}">
+
+                    <Border
+                        UseLayoutRounding="True"
+                        BorderBrush="{StaticResource BrushDark}"
+                        Background="{TemplateBinding Background}">
+
+                        <StackPanel
+                            Orientation="Horizontal">
+
+                            <!-- Icon -->
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                Margin="0 0 8 0"
+                                FontFamily="{StaticResource FontAwesome}"                                
+                                FontSize="{StaticResource FontSizeAverage}"
+                                Foreground="{TemplateBinding Foreground}"
+                                Text="{TemplateBinding Tag}"/>
+
+                            <!-- Label with the text -->
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontFamily="{StaticResource LatoRegular}"
+                                FontSize="{StaticResource FontSizeMedium}"
+                                Foreground="{TemplateBinding Foreground}"
+                                Text="{TemplateBinding Content}"/>
+
+                        </StackPanel>
+
+                    </Border>
+
+                </ControlTemplate>
+            </Setter.Value>
+
+        </Setter>
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Trigger.EnterActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation 
+                                Storyboard.TargetProperty="Foreground.Color" 
+                                To="{StaticResource ColorLighter}" 
+                                Duration="0:0:0.15" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.EnterActions>
+                <Trigger.ExitActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation 
+                                Storyboard.TargetProperty="Foreground.Color" 
+                                From="{StaticResource ColorLighter}" 
+                                Duration="0:0:0.15" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.ExitActions>
+            </Trigger>
+        </Style.Triggers>
+
+    </Style>
+</ResourceDictionary>
