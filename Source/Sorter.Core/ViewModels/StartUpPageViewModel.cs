@@ -1,4 +1,4 @@
-﻿namespace Sorter.Desktop.Windows
+﻿namespace Sorter.Core
 {
     public class StartUpPageViewModel : BaseViewModel
     {

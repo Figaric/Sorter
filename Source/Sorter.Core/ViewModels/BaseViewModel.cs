@@ -1,8 +1,7 @@
-﻿using PropertyChanged;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace Sorter.Desktop.Windows
+namespace Sorter.Core
 {
     public abstract class BaseViewModel : INotifyPropertyChanged
     {
