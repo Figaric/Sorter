@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using Sorter.Core;
+using System.Windows.Controls;
 
 namespace Sorter.Desktop.Windows
 {
