@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Drawing;
+using Sorter.Core;
 
 namespace Sorter.Desktop.Windows
 {
